@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coders Dissect Chatroom</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+  font-family: Courier New;
+  h1 {
+  	background-color: purple;
+  }
+  p{
+  	color: blue;
+  }
+input {
+    display: inline;
+}
+
+</style>
+</head>
+<body bgcolor="purple">
+
+
+<!--
+	Username input. 
+	Submitting name executes setClientName function,
+	emitting the 'setClientName' message to the server over sockets.
+-->
+
+
+<div style="margin:100px;">
+<form action="javascript:setClientName();"  id="alias">
+	<h4> Hi there coder! What's your name?</h4>
+	<h4 style="
+	font-family: Courier New"> 
+	<br>
+	Preferred Name: 
+	<input type="text" name="Nickname" value="fruitoftheLum" style="font-family: Courier New" size="18px" >
+	<input style="font-family: Courier New; "
+	<br>
+	<input type="submit" value="Enter!" size="18px">
+    
+</form>
+ </div>
+
+
+<!-- Chatroom          -->
+
+
+<div id="chatroom" style="  >
+	<div style="padding:10px; height: 400px; overflow-y: scroll" id=chatbox>Welcome to 
+	CodersDissect!</div>
+	<div style=" width:100%; position:absolute; bottom:0;"> 
+		<form action="javascript:clientMessage();" id="inputMessage">
+			<input style="
+				margin: 10px;
+                bottom: 0; 
+                width: 90%; 
+                font-size: 18px;
+                font-family: Courier New;
+                padding:5px;" type="text" name="messageContent" value="Let's dissect some code..." >
+           	<input type="submit" value="Chat">
+
+		</form>
+	</div>
+</div>
+
+<!-- Username input                -->
+
+
+
+<script src = "/socket.io/socket.io.js"></script>
+<script src = "/main.js"></script>
+
+
+
+</body>
+</html>

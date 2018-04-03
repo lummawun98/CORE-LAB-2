@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Canvas animation based on https://www.kirupa.com/snippets/examples/simple_canvas_animation.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AnalogRead Example</title>
+<style>
+canvas {
+	border: 3px #CCC solid;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+	<style> #container{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+</div>
+
+<script src = "/socket.io/socket.io.js"></script>
+
+<script> 
+	var socket = io.connect('http://localhost:8080');
+	var radius;
+	var mappedRadius;
+	
+	socket.on('messages', function (data){
+		digitalRead = parseInt(data.serialValue); 
+		console.log(digitalRead); 
+		if (digitalRead == 0){
+			document.getElementById("container").style.backgroundColor = 'green';
+			
+		}else if(digitalRead == 1){
+			document.getElementById("container").style.backgroundColor = 'red';
+		}
+
+		socket.emit('getSerialVal'); 
+
+	});	
+    </script>
+
+
+</body></html>
